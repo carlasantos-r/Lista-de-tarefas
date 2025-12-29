@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <link rel="stylesheet" type="text/css">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <main id="app">
+
+            <template>
+                <div :class="ativo ? 'botao-ativo' : 'botao-inativo'">
+                    Clique aqui
+                </div>
+
+                <button @click="ativo = !ativo">Alternar estado</button>
+            </template>
+
+            <script>
+            export default {
+                data() {
+                    return {
+                        ativo: false
+                    }
+                }
+            }
+            </script>
+
+            <style>
+            .botao-ativo {
+                background-color: green;
+                color: white;
+            }
+            .botao-inativo {
+                background-color: gray;
+                color: black;
+            }
+            </style>
+        </main>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="scripts.js"></script>
+    </body>
+</html>
