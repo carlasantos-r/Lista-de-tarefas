@@ -4,7 +4,7 @@ data() {
             Tasks: [],
             newTasks: {
                 done: false
-            }
+            },
         };
     },
 
@@ -15,19 +15,20 @@ data() {
                 this.newTasks = {
                     done: false
                 };
-                localStorage.setItem("tasks", JSON.stringify(this.Tasks));
+                // localStorage.setItem("my tasks", JSON.stringify(this.Tasks));
             } else {
                 alert("Task text is required");
             }
+        },
+        storeTasks(){
+            localStorage.setItem("my tasks", JSON.stringify(this.Tasks));
         }
     },
 
-    beforeCreate(){
-        console.log(this.newTasks)
-    },
     created(){
-        console.log(this.newTasks)
+    this.Tasks = localStorage.getItem("my tasks") ? JSON.parse(localStorage.getItem("my tasks")) : this.Tasks
     },
+    
 };
 
 Vue.createApp(toDoList).mount('#app');
